@@ -2,6 +2,7 @@ package theatre
 
 class Authors {
     static hasMany = [play: Plays]
+    static belongsTo = Plays
     String name
     String country
     Date birth_date
@@ -11,5 +12,9 @@ class Authors {
         country nullable: false, blank: false
         birth_date nullable: false
         death_date nullable: false
+    }
+
+    String toString(){
+        name
     }
 }

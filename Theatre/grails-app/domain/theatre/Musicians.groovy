@@ -10,4 +10,7 @@ class Musicians {
         vocals nullable: false, blank: false
         instrument nullable: true, blank: true
     }
+     String toString(){
+        name
+    }
 }

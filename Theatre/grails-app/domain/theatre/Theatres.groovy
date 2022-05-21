@@ -9,6 +9,9 @@ class Theatres {
         seats_number nullable: false
         ticket_price nullable: false
     }
+     String toString(){
+        name
+    }
 }
 
 

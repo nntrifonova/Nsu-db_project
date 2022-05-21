@@ -16,5 +16,8 @@ class Employee {
         salary nullable: false
         kids nullable: false
     }
+     String toString(){
+        full_name
+    }
 
 }

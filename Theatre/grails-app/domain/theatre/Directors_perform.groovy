@@ -7,4 +7,7 @@ class Directors_perform {
         director nullable: false
         performance nullable: false
     }
+     String toString(){
+        name
+    }
 }

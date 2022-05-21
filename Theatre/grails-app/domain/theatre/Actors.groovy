@@ -17,4 +17,7 @@ class Actors {
         rang_date nullable: true
         competition_prizes nullable: true, blank: true
     }
+     String toString(){
+        name
+    }
 }

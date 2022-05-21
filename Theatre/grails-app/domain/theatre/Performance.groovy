@@ -15,4 +15,7 @@ class Performance {
         date nullable: false
         number_of_free_places nullable: false
     }
+     String toString(){
+        name
+    }
 }

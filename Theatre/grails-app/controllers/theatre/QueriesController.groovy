@@ -8,13 +8,15 @@ class QueriesController {
 
 	def index(){
 	}
+	 def filteringAndSorting = {
+        params.salaryFrom = params.salaryFrom ?: 10000
+        int salaryFrom = params.salaryFrom as int
+        def results = Employee.listOrderByFull_name(order: 'asc').findAll {
+            it.salary >= salaryFrom
+        }
 
-	def filteringAndSorting = {
-		params.salaryFrom = params.salaryFrom ?: 1000
-		int salaryFrom = params.salaryFrom as int
-		def results = Emloyee.lastOrderByName(order: 'asc').findAll{
-			it.salary >= salaryFrom
-		}
-	}
-	render(view: 'filteringAndSorting'), model: [results:results, resultCount:results.size()])
-}
+        render(view: 'filteringAndSorting',
+                model: [results: results, salaryFrom: salaryFrom, resultCount: results.size()])
+    }
+
+}	

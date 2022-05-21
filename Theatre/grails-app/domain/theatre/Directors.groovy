@@ -8,4 +8,7 @@ class Directors {
         director nullable: false
         occupation nullable: false, blank: false
     }
+     String toString(){
+        name
+    }
 }

@@ -15,4 +15,7 @@ class Roles {
         height nullable: false
         vocals nullable: false, blank: false
     }
+     String toString(){
+        name
+    }
 }

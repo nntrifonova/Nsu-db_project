@@ -4,6 +4,7 @@ import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
 class PlaysController {
+    static scaffold = Plays
 
     PlaysService playsService
 

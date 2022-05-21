@@ -7,4 +7,7 @@ class Music_perform {
     musician nullable: false
     performance nullable: false
     }
+     String toString(){
+        name
+    }
 }

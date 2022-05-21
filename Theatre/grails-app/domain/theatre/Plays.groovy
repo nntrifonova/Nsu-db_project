@@ -2,7 +2,8 @@ package theatre
 
 class Plays {
     String name
-    static belongsTo = [author: Authors]
+    static hasOne = [author: Authors]
+    static belongsTo = Authors
     //Authors author
     String genre
     String age_category
@@ -14,5 +15,7 @@ class Plays {
         age_category nullable: false, blank: false
         creation_year nullable: false
     }
-
+     String toString(){
+        name
+    }
 }

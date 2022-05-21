@@ -9,4 +9,7 @@ class Competitions {
         start_date nullable: false
         end_date nullable: false
     }
+     String toString(){
+        name
+    }
 }

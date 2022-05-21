@@ -4,7 +4,7 @@ import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
 class AuthorsController {
-
+    static scaffold = Authors
     AuthorsService authorsService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
