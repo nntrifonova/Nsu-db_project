@@ -9,6 +9,7 @@ class Directors {
         occupation nullable: false, blank: false
     }
      String toString(){
-        name
+        //occupation
+        director
     }
 }

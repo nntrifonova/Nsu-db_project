@@ -44,7 +44,7 @@ pre {
 
 }
 .navbar-dark, .navbar-static-top {
-    background-color: #424649;
+    background-color: #df4e0ba9;
     border: 0px;
 }
 a.navbar-brand {
@@ -59,17 +59,17 @@ a.navbar-brand {
     color: white !important;
 }
 .navbar-nav>li>a:hover {
-    background-color: #2559a7 !important;
+    background-color: #ffa631 !important;
     color: white !important;
 }
 .navbar-nav>li>a {
-    color: #c0d3db;
+    color: #dbdbc0;
 }
 .navbar-dark .navbar-toggler .icon-bar {
     background-color: white;
 }
 .navbar-dark .navbar-toggle:hover, .navbar-dark .navbar-toggle:focus {
-    background-color: #2559a7;
+    background-color: #d6156f;
 }
 
 .navbar-toggler {
@@ -136,11 +136,11 @@ a.navbar-brand {
 }
 
 .svg #band {
-    background-image: url(../img/grails-cupsonly-logo-white.svg);
+    background-image: url(../img/theatre_cupslog.jpg);/*url(../img/grails-cupsonly-logo-white.svg);*/
 }
 
 .no-svg #band {
-    background-image: url(../img/groovy-logo-white.png);
+    background-image:url(../img/theatre_cupslog.jpg);/* url(../img/groovy-logo-white.png);*/
 }
 
 @media (max-width: 1010px) {
@@ -399,7 +399,7 @@ body, html {
 }
 
 a {
-    color: #2559a7;
+    color: #c41558;
     text-decoration: underline;
 }
 

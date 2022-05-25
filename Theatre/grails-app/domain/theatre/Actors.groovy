@@ -18,6 +18,6 @@ class Actors {
         competition_prizes nullable: true, blank: true
     }
      String toString(){
-        name
+        actor
     }
 }

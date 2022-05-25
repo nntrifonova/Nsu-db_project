@@ -8,7 +8,7 @@ class QueriesController {
 
 	def index(){
 	}
-	 def filteringAndSorting = {
+	def filteringAndSorting = {
         params.salaryFrom = params.salaryFrom ?: 10000
         int salaryFrom = params.salaryFrom as int
         def results = Employee.listOrderByFull_name(order: 'asc').findAll {
@@ -19,4 +19,23 @@ class QueriesController {
                 model: [results: results, salaryFrom: salaryFrom, resultCount: results.size()])
     }
 
-}	
+    def groupBy = {
+        def results = Directors.findAll().groupBy {
+            it.occupation
+        }
+
+        render(view: 'groupBy',
+                model: [results: results, resultCount: results.size()])
+    }
+    def innerJoin = {
+        List<Musicians> results = new ArrayList<Musicians>()
+        Music_perform.list().each {
+            results.add(it.musician)
+        }
+
+        render(view: 'innerJoin',
+                model: [results: results, resultCount: results.size()])
+    }
+
+
+}
