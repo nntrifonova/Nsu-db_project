@@ -1580,3 +1580,7 @@ select this_.id as id1_10_0_, this_.version as version2_10_0_, this_.creation_ye
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "AUTHORS" не найдена
 Table "AUTHORS" not found; SQL statement:
 select count(*) as y0_ from authors this_ limit ? [42102-199]
+2022-05-27 00:08:08 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "PLAY" не найдена
+Table "PLAY" not found; SQL statement:
+SELECT plays.name, performances.date FROM play inner join performance on (performance.play_id = play.id)WHERE play.genre like 'drama' [42102-199]

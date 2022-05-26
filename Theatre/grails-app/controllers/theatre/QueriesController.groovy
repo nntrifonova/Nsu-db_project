@@ -28,9 +28,13 @@ class QueriesController {
                 model: [results: results, resultCount: results.size()])
     }
     def innerJoin = {
-        List<Musicians> results = new ArrayList<Musicians>()
-        Music_perform.list().each {
-            results.add(it.musician)
+        def que = "SELECT Plays.name, Performance.date FROM Plays inner join Performance on (Performance.play_id = Plays.id)" +
+         "WHERE Plays.genre like 'drama'"
+         def sql = new Sql(dataSource as DataSource)
+        List<Plays> results = new ArrayList<Plays>()
+        sql.rows(que).each {
+            results.add(Plays.findByName(it.name))
+
         }
 
         render(view: 'innerJoin',
@@ -39,3 +43,4 @@ class QueriesController {
 
 
 }
+
