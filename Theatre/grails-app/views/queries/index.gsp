@@ -94,6 +94,24 @@
         </a>
     </li>
     <li class="controller-item">
+        <a class="fieldcontain required controller-link" href="cte">
+            <div class="controller-card queries-card">
+                                <h2 class="controller-heading">
+                                    CTE
+                                </h2>
+                            </div>
+        </a>
+    </li>
+        <li class="controller-item">
+        <a class="fieldcontain required controller-link" href="recursiv">
+            <div class="controller-card queries-card">
+                                <h2 class="controller-heading">
+                                    Recursiv
+                                </h2>
+                            </div>
+        </a>
+    </li>
+    <li class="controller-item">
         <a class="fieldcontain required controller-link" href="outerJoin">
             <div class="controller-card queries-card">
                                 <h2 class="controller-heading">

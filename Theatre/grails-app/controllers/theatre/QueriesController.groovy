@@ -118,6 +118,36 @@ class QueriesController {
                 model: [results: results, resultCount: results.size()])
     }
 
+    def cte = {
+
+        def queryString = "with CTE as (select play, number_of_free_places from Performance)" +
+            "select  play, number_of_free_places from CTE where number_of_free_places > 10 "
+        def sql = new Sql(dataSource as DataSource)
+        List<Performance> results = new ArrayList<Performance>()
+        sql.rows(queryString).each {
+            results.add(Performance.findByPlay(it.play))
+        }
+
+        render(view: 'cte',
+                model: [results: results, resultCount: results.size()])
+    }
+
+    def recursiv = {
+
+        def queryString = "with recursive t(n) as ( values (0)  union all " +
+               "select salary from employee e where e.salary < 40000) " +
+               "select sum(n) from t;"
+
+        def sql = new Sql(dataSource as DataSource)
+        List<Employee> results = new ArrayList<Employee>()
+        sql.rows(queryString).each {
+            results.add(Employee.findBySalary(it.salary))
+        }
+
+        render(view: 'recursiv',
+                model: [results: results, resultCount: results.size()])
+    }
+
 
 }
 
