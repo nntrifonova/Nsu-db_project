@@ -13,3 +13,87 @@
 *= require mobile
 *= require_self
 */
+
+.section-controller {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.section-heading {
+    font-size: 48px;
+    text-align: center;
+}
+
+.section-description {
+    font-size: 16px;
+}
+
+.controller-list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.controller-item {
+    display: inline-block;
+}
+
+.controller-item:nth-child(12){
+    order: -1;
+}
+
+.controller-item:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.controller-link {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.controller-card {
+    min-height: 100px;
+    min-width: 250px;
+    border: 1px solid #1c1c1c;
+    border-radius: 10px;
+
+    background: linear-gradient(
+        to left,
+        rgba(0,0,0,0),
+        rgba(184, 99, 2, 0.5),
+        rgb(184, 99, 2)
+    ), url(./../images/th.svg);
+    /* background-image: ; */
+    padding: 10px;
+    background-position: right;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.controller-heading {
+    font-size: 24px;
+}
+
+.controller-description {
+    font-size: 16px;
+}
+
+.queries-card {
+    margin-left: 40px;
+    margin-right: 40px;
+
+    background: linear-gradient(
+        to left,
+        rgba(0,0,0,0),
+        rgba(184, 99, 2, 0.5),
+        rgb(184, 99, 2)
+    ), url(./../images/theater_cupslog.jpg);
+    /* background-image: ; */
+    padding: 10px;
+    background-position: right;
+    background-size: contain;
+    background-repeat: no-repeat;
+}

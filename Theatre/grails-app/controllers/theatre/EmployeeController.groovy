@@ -11,7 +11,7 @@ class EmployeeController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond employeeService.list(params), model:[employeeCount: employeeService.count()]
+        respond employeeService.listWithParams(params), model:[employeeCount: employeeService.count()]
     }
 
     def show(Long id) {

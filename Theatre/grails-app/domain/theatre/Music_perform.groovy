@@ -3,11 +3,13 @@ package theatre
 class Music_perform {
     Musicians musician
     Performance performance
+
+
     static constraints = {
-    musician nullable: false
+    musician unique: true
     performance nullable: false
     }
      String toString(){
-        name
+        musician
     }
 }

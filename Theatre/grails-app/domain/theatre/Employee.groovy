@@ -9,8 +9,8 @@ class Employee {
     int kids        
     
     static constraints = {
-        full_name nullable: false, blank: false
-        sex nullable: false, blank: false
+        full_name blank: false
+        sex nullable: false, blank: false, size: 1..2
         birth_date nullable: false
         hired nullable: false
         salary nullable: false

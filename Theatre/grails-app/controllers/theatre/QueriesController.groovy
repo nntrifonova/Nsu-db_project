@@ -27,17 +27,94 @@ class QueriesController {
         render(view: 'groupBy',
                 model: [results: results, resultCount: results.size()])
     }
+       /*  def having = {
+        def results_1 = Directors.findAll().groupBy {
+            it.occupation
+        }
+        def queryString = "SELECT di.performance_id as perform, ARRAY_AGG(di.director_id) as employees " +
+                "FROM Directors_perform di JOIN directors d ON d.id = di.director_id " +
+                "GROUP BY di.performance_id HAVING (d.premia >= AVG(d.premia))"
+        def c = result_1.createCriteria()
+        def result_2 = c.list{gt('premia',avg('premia'))} 
+        def sql = new Sql(dataSource as DataSource)
+        Map<Performance, List<Directors>> results = new HashMap<Performance, List<Directors>>()
+        sql.rows(queryString).each {
+            results.put(Performance.findById(it.performance_id), Directors.findAllByIdInList(it.directors as List<Long>))
+            println(it)
+        }
+
+        render(view: 'having',
+                model: [results: result_2, resultCount: result_2.size()])
+
+    }
+*/
     def innerJoin = {
         def que = "SELECT Plays.name, Performance.date FROM Plays inner join Performance on (Performance.play_id = Plays.id)" +
          "WHERE Plays.genre like 'drama'"
          def sql = new Sql(dataSource as DataSource)
-        List<Plays> results = new ArrayList<Plays>()
+         List<Performance> results = new ArrayList<Performance>()
         sql.rows(que).each {
-            results.add(Plays.findByName(it.name))
+            results.add(Performance.findByDate(it.date))
 
         }
 
         render(view: 'innerJoin',
+                model: [results: results, resultCount: results.size()])
+    }
+    
+    def outerJoin = {
+        def queryString = "SELECT e.id FROM Employee e LEFT JOIN Musicians m on m.musician_id = e.id " +
+                "WHERE m.instrument is not NULL"
+        def sql = new Sql(dataSource as DataSource)
+        List<Employee> results = new ArrayList<Employee>()
+        sql.rows(queryString).each {
+            results.add(Employee.findById(it.id))
+        }
+
+        render(view: 'outerJoin',
+                model: [results: results, resultCount: results.size()])
+    }
+
+
+
+    def subQuery = {
+        def employees = Employee.listOrderById(order: 'asc')
+        def employeeId = params.employee
+        if (employeeId == null) {
+            render(view: 'subQuery',
+                    model: [results    : null,
+                            resultCount: null,
+                            employees  : employees
+                    ])
+            return
+        }
+        def queryString = "SELECT e.id FROM Employee e LEFT JOIN Actors a on a.actor_id = e.id " +
+                "WHERE a.age > 30 AND " +
+                "e.salary > (SELECT e.salary FROM employee e WHERE e.id = ${employeeId})"
+        def sql = new Sql(dataSource as DataSource)
+        List<Employee> results = new ArrayList<Employee>()
+        sql.rows(queryString).each {
+            results.add(Employee.findById(it.id))
+        }
+
+        render(view: 'subQuery',
+                model: [results    : results,
+                        resultCount: results.size(),
+                        employees  : employees
+                ])
+    }
+
+    def CrossJoin = {
+
+        def queryString = " SELECT * FROM (SELECT * FROM Actors a) CROSS JOIN (SELECT r.ceracter, r.height FROM Roles r)" 
+               + "WHERE a.height > 160 and r.height > 160 "
+        def sql = new Sql(dataSource as DataSource)
+        List<Actors> results = new ArrayList<Actors>()
+        sql.rows(queryString).each {
+            results.add(Actors.findById(it.id))
+        }
+
+        render(view: 'CrossJoin',
                 model: [results: results, resultCount: results.size()])
     }
 

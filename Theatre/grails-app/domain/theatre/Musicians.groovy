@@ -5,6 +5,8 @@ class Musicians {
     String vocals
     String instrument
 
+    static hasOne = Music_perform
+
     static constraints = {
         musician nullable: false
         vocals nullable: false, blank: false

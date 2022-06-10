@@ -8,6 +8,6 @@ class Directors_perform {
         performance nullable: false
     }
      String toString(){
-        name
+        director
     }
 }

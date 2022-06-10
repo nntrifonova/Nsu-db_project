@@ -10,8 +10,8 @@ class Actors {
     String competition_prizes
     static constraints = {
         actor nullable: false
-        vocals nullable: false , blank: false
-        age nullable: false
+        vocals nullable: false , blank: false, size: 2..30
+        age min:18
         height nullable: false
         rang nullable: true, blank: true
         rang_date nullable: true

@@ -9,7 +9,5 @@ class Actors_perform {
         role nullable: false
         performance nullable: false
     }
-     String toString(){
-        name
-    }
+    
 }

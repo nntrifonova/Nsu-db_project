@@ -13,23 +13,26 @@
 </div>
 <div>
     <div>
-        <h2>Inner join</h2>
+        <h2>Having</h2>
     </div>
     <form class="form">
-        All drama performances sorted by date.
+        Вывести фамилии работников (employee) для каждого отдела (department),
+        у которых зп выше среднего по отделу
         <input type="submit" value="Обновить">
     </form>
 
-    <div id="list-performance" class="content scaffold-list" role="main">
+    <div id="list-directors" class="content scaffold-list" role="main">
         <h1><g:message code="default.list.label" args="[entityName]" /></h1>
         <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
         </g:if>
-        <f:table collection="${results}" />
-
-        <div class="pagination">
-            <g:paginate total="${resultCount ?: 0}" />
-        </div>
+        <g:each in="${results}" var="result">
+            <div style="background-color: #FFFFFF">
+                Department: <a href="/department/show/${result.key.id}">${result.key}</a>
+            </div>
+            <f:table collection="${result.value}"/>
+            <br>
+        </g:each>
     </div>
 </div>
 </body>

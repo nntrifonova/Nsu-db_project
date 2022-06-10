@@ -13,14 +13,14 @@
 </div>
 <div>
     <div>
-        <h2>Inner join</h2>
+        <h2>Outer join</h2>
     </div>
     <form class="form">
-        All drama performances sorted by date.
+        Вывести информацию о сотрудниках, которые умеют играть на музыкальных инструментах
         <input type="submit" value="Обновить">
     </form>
 
-    <div id="list-performance" class="content scaffold-list" role="main">
+    <div id="list-employee" class="content scaffold-list" role="main">
         <h1><g:message code="default.list.label" args="[entityName]" /></h1>
         <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>

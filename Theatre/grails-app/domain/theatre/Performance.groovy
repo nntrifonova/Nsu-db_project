@@ -7,6 +7,7 @@ class Performance {
     Boolean premier
     Date date
     int number_of_free_places
+
     static constraints = {
         play nullable: false
         theatre nullable: false

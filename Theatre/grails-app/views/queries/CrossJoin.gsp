@@ -13,14 +13,14 @@
 </div>
 <div>
     <div>
-        <h2>Inner join</h2>
+        <h2>Cross join</h2>
     </div>
     <form class="form">
-        All drama performances sorted by date.
+        Информацио об актерах, которые по росту подходят на роль
         <input type="submit" value="Обновить">
     </form>
 
-    <div id="list-performance" class="content scaffold-list" role="main">
+    <div id="list-actors" class="content scaffold-list" role="main">
         <h1><g:message code="default.list.label" args="[entityName]" /></h1>
         <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
